@@ -16,6 +16,8 @@ import java.awt.Toolkit;
 import java.awt.SystemColor;
 import java.awt.Color;
 import javax.swing.UIManager;
+import javax.swing.JPanel;
+import javax.swing.JEditorPane;
 
 
 public class TelaPrograma {
@@ -61,7 +63,7 @@ public class TelaPrograma {
 		frmHappySoftware = new JFrame();
 		frmHappySoftware.getContentPane().setBackground(UIManager.getColor("Button.background"));
 		frmHappySoftware.setTitle("Happy Software");
-		frmHappySoftware.setBounds(100, 100, 800, 450);
+		frmHappySoftware.setBounds(100, 100, 800, 550);
 		frmHappySoftware.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -79,50 +81,51 @@ public class TelaPrograma {
 		JMenuItem mntmCadastrar = new JMenuItem("Cadastrar ");
 		mnArquivo.add(mntmCadastrar);
 		
+		JMenuItem mntmProcurar = new JMenuItem("Procurar");
+		mnArquivo.add(mntmProcurar);
+		
 		JMenuItem mntmSair = new JMenuItem("Sair");
 		mnArquivo.add(mntmSair);
 		
 		JMenu mnEditar = new JMenu("Editar");
 		menuBar.add(mnEditar);
 		
+		JMenuItem mntmAlterarCliente = new JMenuItem("Cliente");
+		mnEditar.add(mntmAlterarCliente);
+		
+		JMenuItem mntmVendedor = new JMenuItem("Vendedor");
+		mnEditar.add(mntmVendedor);
+		
+		JMenuItem mntmProduto = new JMenuItem("Produto");
+		mnEditar.add(mntmProduto);
+		
+		JMenuItem mntmDespesa = new JMenuItem("Despesa");
+		mnEditar.add(mntmDespesa);
+		
 		JMenu mnAjuda = new JMenu("Relatorio");
 		menuBar.add(mnAjuda);
 		
+		JMenuItem mntmBuscarCliente = new JMenuItem("Buscar Cliente");
+		mnAjuda.add(mntmBuscarCliente);
+		
+		JMenuItem mntmBuscarVendedor = new JMenuItem("Buscar Vendedor");
+		mnAjuda.add(mntmBuscarVendedor);
+		
+		JMenuItem mntmBuscarProduto = new JMenuItem("Buscar Produto");
+		mnAjuda.add(mntmBuscarProduto);
+		
+		JMenuItem mntmBuscarDespesa = new JMenuItem("Buscar Despesa");
+		mnAjuda.add(mntmBuscarDespesa);
+		
 		JMenu mnAjuda_1 = new JMenu("Ajuda");
 		menuBar.add(mnAjuda_1);
+		
+		JMenuItem mntmManualDeAjuda = new JMenuItem("Ajuda");
+		mnAjuda_1.add(mntmManualDeAjuda);
+		
+		JMenuItem mntmSobreOHappy = new JMenuItem("Sobre o HappySoftware ");
+		mnAjuda_1.add(mntmSobreOHappy);
 		frmHappySoftware.getContentPane().setLayout(null);
-		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBounds(12, 12, 100, 25);
-		frmHappySoftware.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBounds(141, 12, 100, 25);
-		frmHappySoftware.getContentPane().add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setBounds(267, 12, 100, 25);
-		frmHappySoftware.getContentPane().add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("");
-		btnNewButton_3.setBounds(396, 12, 100, 25);
-		frmHappySoftware.getContentPane().add(btnNewButton_3);
-		
-		JLabel lblCadastrar = new JLabel("Cadastrar");
-		lblCadastrar.setBounds(12, 48, 85, 15);
-		frmHappySoftware.getContentPane().add(lblCadastrar);
-		
-		JLabel lblVendas = new JLabel("Vendas");
-		lblVendas.setBounds(151, 48, 70, 15);
-		frmHappySoftware.getContentPane().add(lblVendas);
-		
-		JLabel lblNewLabel = new JLabel("Procurar");
-		lblNewLabel.setBounds(277, 48, 70, 15);
-		frmHappySoftware.getContentPane().add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("Relat\u00F3rio");
-		lblNewLabel_1.setBounds(406, 48, 70, 15);
-		frmHappySoftware.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblCadastrarCliente = new JLabel("Cadastro de Cliente");
 		lblCadastrarCliente.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -203,15 +206,15 @@ public class TelaPrograma {
 		textField_7.setColumns(10);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(657, 355, 117, 25);
+		btnCancelar.setBounds(294, 437, 117, 25);
 		frmHappySoftware.getContentPane().add(btnCancelar);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(528, 355, 117, 25);
+		btnSalvar.setBounds(165, 437, 117, 25);
 		frmHappySoftware.getContentPane().add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Excluir");
-		btnLimpar.setBounds(373, 355, 117, 25);
+		btnLimpar.setBounds(10, 437, 117, 25);
 		frmHappySoftware.getContentPane().add(btnLimpar);
 		
 		JLabel lblN = new JLabel("N");
@@ -223,8 +226,51 @@ public class TelaPrograma {
 		frmHappySoftware.getContentPane().add(textField_8);
 		textField_8.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("logomarca");
-		lblNewLabel_2.setBounds(521, 12, 255, 325);
-		frmHappySoftware.getContentPane().add(lblNewLabel_2);
+		JPanel panel = new JPanel();
+		panel.setBounds(525, 0, 259, 491);
+		frmHappySoftware.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JEditorPane editorPane = new JEditorPane();
+		editorPane.setEditable(false);
+		editorPane.setBounds(10, 5, 239, 475);
+		panel.add(editorPane);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 0, 526, 77);
+		frmHappySoftware.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblCadastrar = new JLabel("Cadastrar");
+		lblCadastrar.setBounds(10, 52, 48, 14);
+		panel_1.add(lblCadastrar);
+		
+		JLabel lblVendas = new JLabel("Vendas");
+		lblVendas.setBounds(80, 52, 46, 14);
+		panel_1.add(lblVendas);
+		
+		JLabel lblProcurar = new JLabel("Procurar");
+		lblProcurar.setBounds(146, 52, 46, 14);
+		panel_1.add(lblProcurar);
+		
+		JLabel lblRelatrio = new JLabel("Relat\u00F3rio");
+		lblRelatrio.setBounds(219, 52, 46, 14);
+		panel_1.add(lblRelatrio);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBounds(10, 0, 35, 35);
+		panel_1.add(btnNewButton);
+		
+		JButton button = new JButton("");
+		button.setBounds(77, 0, 35, 35);
+		panel_1.add(button);
+		
+		JButton button_1 = new JButton("");
+		button_1.setBounds(150, 0, 35, 35);
+		panel_1.add(button_1);
+		
+		JButton button_2 = new JButton("");
+		button_2.setBounds(219, 0, 35, 35);
+		panel_1.add(button_2);
 	}
 }
