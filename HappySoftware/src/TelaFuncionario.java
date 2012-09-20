@@ -12,6 +12,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JSplitPane;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 
 public class TelaFuncionario extends JFrame {
@@ -47,62 +51,36 @@ public class TelaFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaFuncionario() {
+		setTitle("HappySoftware");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 550);
+		setBounds(100, 100, 810, 560);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(525, 22, 259, 490);
-		contentPane.add(panel);
-		panel.setLayout(null);
 		
 		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBounds(10, 11, 239, 468);
-		panel.add(editorPane);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 22, 527, 77);
-		contentPane.add(panel_1);
-		panel_1.setLayout(null);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setBounds(10, 0, 35, 35);
-		panel_1.add(btnNewButton);
 		
 		JButton button = new JButton("");
-		button.setBounds(77, 0, 35, 35);
-		panel_1.add(button);
 		
 		JButton button_1 = new JButton("");
-		button_1.setBounds(150, 0, 35, 35);
-		panel_1.add(button_1);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBounds(219, 0, 35, 35);
-		panel_1.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Cadastro");
-		lblNewLabel.setBounds(10, 46, 46, 14);
-		panel_1.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Vendas");
-		lblNewLabel_1.setBounds(77, 46, 46, 14);
-		panel_1.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Procurar");
-		lblNewLabel_2.setBounds(150, 46, 46, 14);
-		panel_1.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Relat\u00F3rio");
-		lblNewLabel_3.setBounds(219, 46, 46, 14);
-		panel_1.add(lblNewLabel_3);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 784, 21);
-		contentPane.add(menuBar);
 		
 		JMenu mnArquivo = new JMenu("Arquivo");
 		menuBar.add(mnArquivo);
@@ -163,101 +141,239 @@ public class TelaFuncionario extends JFrame {
 		
 		JLabel lblCadastroDeFuncion = new JLabel("Cadastro de Funcion\u00E1rio");
 		lblCadastroDeFuncion.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblCadastroDeFuncion.setBounds(10, 98, 188, 22);
-		contentPane.add(lblCadastroDeFuncion);
 		
 		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(20, 131, 46, 14);
-		contentPane.add(lblNome);
 		
 		textField = new JTextField();
-		textField.setBounds(10, 150, 225, 25);
-		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblSobren = new JLabel("Sobrenome");
-		lblSobren.setBounds(263, 131, 75, 14);
-		contentPane.add(lblSobren);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(263, 150, 252, 25);
-		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblCod = new JLabel("COD");
-		lblCod.setBounds(20, 186, 36, 14);
-		contentPane.add(lblCod);
 		
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
-		textField_2.setBounds(10, 211, 175, 25);
-		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblCpf = new JLabel("CPF");
-		lblCpf.setBounds(263, 186, 39, 14);
-		contentPane.add(lblCpf);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(263, 213, 252, 25);
-		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblEndereo = new JLabel("Endere\u00E7o");
-		lblEndereo.setBounds(20, 246, 46, 14);
-		contentPane.add(lblEndereo);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(10, 271, 505, 25);
-		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
 		JLabel lblBairro = new JLabel("Bairro");
-		lblBairro.setBounds(20, 307, 46, 14);
-		contentPane.add(lblBairro);
 		
 		JLabel lblCidade = new JLabel("Cidade");
-		lblCidade.setBounds(263, 307, 46, 14);
-		contentPane.add(lblCidade);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(263, 332, 252, 25);
-		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(10, 332, 225, 25);
-		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento");
-		lblDataDeNascimento.setBounds(10, 368, 103, 14);
-		contentPane.add(lblDataDeNascimento);
 		
 		JLabel lblN = new JLabel("N");
-		lblN.setBounds(263, 368, 46, 14);
-		contentPane.add(lblN);
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(263, 393, 86, 25);
-		contentPane.add(textField_7);
 		textField_7.setColumns(10);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(10, 393, 121, 25);
-		contentPane.add(textField_8);
 		textField_8.setColumns(10);
 		
 		JButton btnNewButton_2 = new JButton("Excluir");
-		btnNewButton_2.setBounds(32, 461, 117, 25);
-		contentPane.add(btnNewButton_2);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(222, 461, 117, 25);
-		contentPane.add(btnSalvar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(355, 462, 117, 25);
-		contentPane.add(btnCancelar);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addComponent(menuBar, GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 525, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(20)
+							.addComponent(lblNome, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+							.addGap(197)
+							.addComponent(lblSobren, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
+							.addGap(28)
+							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(20)
+							.addComponent(lblCod, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+							.addGap(207)
+							.addComponent(lblCpf, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10)
+							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+							.addGap(78)
+							.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(20)
+							.addComponent(lblEndereo, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10)
+							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 505, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(20)
+							.addComponent(lblBairro, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+							.addGap(197)
+							.addComponent(lblCidade, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10)
+							.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE)
+							.addGap(28)
+							.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10)
+							.addComponent(lblDataDeNascimento, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+							.addGap(150)
+							.addComponent(lblN, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10)
+							.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
+							.addGap(132)
+							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(32)
+							.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
+							.addGap(73)
+							.addComponent(btnSalvar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
+							.addGap(16)
+							.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(10)
+							.addComponent(lblCadastroDeFuncion, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)))
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(menuBar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(1)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(76)
+									.addComponent(lblCadastroDeFuncion, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)))
+							.addGap(11)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblNome)
+								.addComponent(lblSobren))
+							.addGap(5)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+							.addGap(11)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblCod)
+								.addComponent(lblCpf))
+							.addGap(11)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(2)
+									.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+							.addGap(8)
+							.addComponent(lblEndereo)
+							.addGap(11)
+							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+							.addGap(11)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblBairro)
+								.addComponent(lblCidade))
+							.addGap(11)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+							.addGap(11)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblDataDeNascimento)
+								.addComponent(lblN))
+							.addGap(11)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+							.addGap(43)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnSalvar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(1)
+									.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))))
+						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)))
+		);
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+							.addGap(32)
+							.addComponent(button, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+							.addGap(38)
+							.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+							.addGap(34)
+							.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+							.addGap(4)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)
+							.addGap(2)
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_panel_1.createSequentialGroup()
+									.addGap(69)
+									.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))
+								.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE)))))
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+						.addComponent(button_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
+					.addGap(11)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel)
+						.addComponent(lblNewLabel_1)
+						.addComponent(lblNewLabel_3)
+						.addComponent(lblNewLabel_2)))
+		);
+		panel_1.setLayout(gl_panel_1);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(editorPane, GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(editorPane, GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		panel.setLayout(gl_panel);
+		contentPane.setLayout(gl_contentPane);
 	}
 }
