@@ -16,6 +16,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JSplitPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 
 
 public class TelaFuncionario extends JFrame {
@@ -65,12 +66,16 @@ public class TelaFuncionario extends JFrame {
 		JPanel panel_1 = new JPanel();
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\kovausk\\workspace\\HappySoftware\\src\\Incones\\cadastro.png"));
 		
 		JButton button = new JButton("");
+		button.setIcon(new ImageIcon("C:\\Users\\kovausk\\workspace\\HappySoftware\\src\\Incones\\Vendas.png"));
 		
 		JButton button_1 = new JButton("");
+		button_1.setIcon(new ImageIcon("C:\\Users\\kovausk\\workspace\\HappySoftware\\src\\Incones\\Procurar.png"));
 		
 		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\kovausk\\workspace\\HappySoftware\\src\\Incones\\Relatorio.png"));
 		
 		JLabel lblNewLabel = new JLabel("Cadastro");
 		
@@ -180,7 +185,7 @@ public class TelaFuncionario extends JFrame {
 		
 		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento");
 		
-		JLabel lblN = new JLabel("N");
+		JLabel lblN = new JLabel("N\u00BA");
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
@@ -195,9 +200,9 @@ public class TelaFuncionario extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addComponent(menuBar, GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 525, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -221,9 +226,6 @@ public class TelaFuncionario extends JFrame {
 							.addGap(78)
 							.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(20)
-							.addComponent(lblEndereo, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(10)
 							.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 505, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -237,16 +239,6 @@ public class TelaFuncionario extends JFrame {
 							.addGap(28)
 							.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 252, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(10)
-							.addComponent(lblDataDeNascimento, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
-							.addGap(150)
-							.addComponent(lblN, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(10)
-							.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
-							.addGap(132)
-							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(32)
 							.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)
 							.addGap(73)
@@ -255,7 +247,22 @@ public class TelaFuncionario extends JFrame {
 							.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(10)
-							.addComponent(lblCadastroDeFuncion, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(lblCadastroDeFuncion, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addContainerGap()
+									.addComponent(lblDataDeNascimento, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(10)
+									.addComponent(textField_8, GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
+							.addGap(132)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblN, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(20)
+							.addComponent(lblEndereo, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)))
 					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -301,7 +308,7 @@ public class TelaFuncionario extends JFrame {
 								.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 							.addGap(11)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblDataDeNascimento)
 								.addComponent(lblN))
 							.addGap(11)
