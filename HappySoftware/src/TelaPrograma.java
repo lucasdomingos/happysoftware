@@ -106,7 +106,7 @@ public class TelaPrograma {
 		JMenuItem mntmDespesa = new JMenuItem("Despesa");
 		mnEditar.add(mntmDespesa);
 		
-		JMenu mnAjuda = new JMenu("Relatorio");
+		JMenu mnAjuda = new JMenu("Procurar");
 		menuBar.add(mnAjuda);
 		
 		JMenuItem mntmBuscarCliente = new JMenuItem("Buscar Cliente");
@@ -254,8 +254,7 @@ public class TelaPrograma {
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(editorPane, GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(editorPane, GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -289,8 +288,8 @@ public class TelaPrograma {
 							.addGap(213)
 							.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE)))
 					.addGap(10)
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
-					.addGap(1))
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 247, Short.MAX_VALUE)
+					.addContainerGap())
 				.addGroup(groupLayout.createSequentialGroup()
 					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
 					.addGap(258))
@@ -354,7 +353,6 @@ public class TelaPrograma {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnLimpar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnCancelar, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
 				.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(78)
@@ -392,6 +390,7 @@ public class TelaPrograma {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(345)
 					.addComponent(lblDataDeNascimento, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE))
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
 		);
 		frmHappySoftware.getContentPane().setLayout(groupLayout);
 	}
