@@ -23,7 +23,7 @@ public class VendasRepositorio {
 	 * o objeto no metodo salvarRepositorio
 	 */
 	@SuppressWarnings("unused")
-	public static void salvaReposittorio(Vendas v)throws SQLException{
+	public static void salvaVendaRepositorio(Vendas v)throws SQLException{
 		
 		@SuppressWarnings("static-access")
 		Connection salva = new GerenteConxao().getConexao();
@@ -73,6 +73,43 @@ public class VendasRepositorio {
 		}
 		
 	}// FIM do metodo salvar 
+	
+	/**
+	 * Este metodo exclui os dados do 
+	 * modelo produto que estão no banco 
+	 * de Dados
+	 * @param v parametro do metodo 
+	 */
+	public void ExcluirVendaRepositorio(Vendas v){
+		
+		
+		@SuppressWarnings("static-access")
+		Connection excluir = new GerenteConxao().getConexao();
+		PreparedStatement pst = null;
+		
+		
+		@SuppressWarnings("unused")
+		int ret = 0;
+	
+		
+		
+		
+		try{
+			
+			String sql ="delete from venda where produto  = ?";
+			pst = (PreparedStatement) excluir.prepareStatement(sql);
+			
+			pst.setString(1, v.getProduto());
+			ret = pst.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Dados excluidos com sucesso!");
+		}catch(SQLException sqle){
+			
+			sqle.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Não foi possivel excluir os dados!");
+		}
+		
+	}//FIM do metodo ExcluirVendaRepositorio
 	
 	
 	

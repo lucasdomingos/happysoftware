@@ -30,6 +30,7 @@ import java.text.ParseException;
 import javax.swing.JFormattedTextField;
 
 
+@SuppressWarnings({ "serial", "unused" })
 public class TelaFuncionario extends JFrame {
 
 	private JPanel contentPane;
@@ -238,6 +239,22 @@ public class TelaFuncionario extends JFrame {
 		vendedorfone.setColumns(10);
 		panel_2.add(vendedorfone);
 		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Fachada excluir = new Fachada();
+				Funcionario delete = new Funcionario();
+				
+				delete.setCodigo(vendedorCod.getText());
+				excluir.Excluirfuncionario(delete);
+				
+				
+			}
+		});
+		btnDelete.setBounds(24, 397, 101, 23);
+		panel_2.add(btnDelete);
+		
 	}
 
 
@@ -255,6 +272,4 @@ public void limpa(){
 	vendedorfone.setText("");
 	
 }
-	
-	
 }

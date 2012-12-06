@@ -38,13 +38,6 @@ public class TelaDespesas extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
-	private void fechar(){
-		this.dispose();
-		}
 	
 	public TelaDespesas() {
 		setResizable(false);
@@ -82,24 +75,25 @@ public class TelaDespesas extends JFrame {
 		contentPane.add(valorDespesa);
 		valorDespesa.setColumns(10);
 		
-		JButton despesaCancelar = new JButton("Cancelar");
-		despesaCancelar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				fechar();
-				
-			}
-		});
-		despesaCancelar.setBounds(532, 341, 100, 23);
-		contentPane.add(despesaCancelar);
-		
 		JButton despesaExcluir = new JButton("Excluir");
 		despesaExcluir.setIcon(new ImageIcon(TelaDespesas.class.getResource("/img/cancelar.png")));
 		despesaExcluir.setBounds(516, 371, 116, 23);
 		contentPane.add(despesaExcluir);
 		
-		JButton despesaOk = new JButton("Ok");
-		despesaOk.setBounds(422, 341, 100, 23);
+		JButton despesaOk = new JButton("Delete");
+		despesaOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Fachada excluir = new Fachada();
+				Despesa delete = new Despesa();
+				
+				delete.setCodigo(codigoDespesa.getText());
+				excluir.ExcluirDespesas(delete);
+				limpa();
+				
+			}
+		});
+		despesaOk.setBounds(10, 371, 100, 23);
 		contentPane.add(despesaOk);
 		
 		JButton despesaSalvar = new JButton("Salvar");

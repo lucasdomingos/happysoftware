@@ -23,6 +23,7 @@ import java.text.ParseException;
 import java.util.Vector;
 import javax.swing.JFormattedTextField;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 
 @SuppressWarnings({ "serial", "unused" })
@@ -128,8 +129,18 @@ public class TelaVenda extends JFrame {
 		vendaCancelar.setBounds(552, 362, 129, 23);
 		contentPane.add(vendaCancelar);
 		
-		JButton vendaOk = new JButton("Ok");
-		vendaOk.setBounds(464, 328, 100, 23);
+		JButton vendaOk = new JButton("Delete");
+		vendaOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Fachada excluir = new Fachada();
+				Vendas delete   = new Vendas();
+				delete.setProduto(vendaProduto.getText());
+				excluir.ExcluirVendas(delete);
+				
+			}
+		});
+		vendaOk.setBounds(10, 362, 100, 23);
 		contentPane.add(vendaOk);
 		
 		JButton vendaSalvar = new JButton("Salvar");
@@ -212,6 +223,11 @@ public class TelaVenda extends JFrame {
 		contentPane.add(vendaValorFinal);
 		vendaValorFinal.setColumns(10);
 		
+		JLabel lblVendas = new JLabel("Vendas");
+		lblVendas.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblVendas.setBounds(10, 11, 108, 36);
+		contentPane.add(lblVendas);
+		
 		
 	}
      
@@ -228,5 +244,4 @@ public class TelaVenda extends JFrame {
 		
 		
 	}
-
 }

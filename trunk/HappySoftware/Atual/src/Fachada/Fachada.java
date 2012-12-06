@@ -25,51 +25,72 @@ public class Fachada {
 	
 	
 	
-	
+	/**
+	 * Estes metodos são os controladores 
+     * da Classe Produto que servem para 
+     * salvar, ecluir, listar e alterar 
+     * os valores no banco de dados  
+	 * @param p
+	 * @throws SQLException
+	 */
 	public void salvarProdutos(Produto p)throws SQLException {
-		
-		
 		controladorProduto.SalvarProdutoControlador(p);
 	}
+	public void excluirProduto(Produto p){
+		controladorProduto.ExcluirProdutoControlador(p);
+	}
+	
+	
 	
 	
 	public void salvafuncionario(Funcionario f){
-		
-		
 		controladorfuncionario.salvaFuncionarioControlador(f);
+	}
+	public void Excluirfuncionario(Funcionario f){
+		controladorfuncionario.ExcluirFuncionarioControlador(f);
 	}
 	
 	
-	public void salvaCliente(Cliente c){
-		
+	
+	
+	public void salvaCliente(Cliente c){	
 		controladorCliente.SalvaClienteControlador(c);
-		
 	}
 	
 	public void ExcluirCliente(Cliente c){
-		
 		controladorCliente.ExcluirClienteControlador(c);
-		
 	}
 	
 	
 	
 	
     public void salvaDespesas(Despesa d){
-	
 	controladordespesa.salvaDespesasControlador(d);
 	
     }
-	
+	public void ExcluirDespesas(Despesa d){
+		controladordespesa.ExcluirDespesasControlador(d);
+	}
  
-
+     /**Estes metodos são os controladores 
+      * da Classe cleinte que servem para 
+      * salvar, ecluir, listar e alterar 
+      * os valores no banco de dados 
+      * @param v
+      * @throws SQLException
+      */
 	public void SalvaVendas(Vendas v) throws SQLException {
-		
-	
 		 controladorVendas.salvaVendasControlador(v);
 		 
 	}
-  
+   public void ExcluirVendas(Vendas v){
+	   controladorVendas.ExcluirVendasControlador(v);
+    }
+
+
+
+
+
   
 	
 	

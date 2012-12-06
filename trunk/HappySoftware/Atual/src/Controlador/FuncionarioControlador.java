@@ -1,13 +1,21 @@
 package Controlador;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.PreparedStatement;
 
 import Modelo.Funcionario;
 import Repositorio.FuncionarioRepositorio;
+import Util.GerenteConxao;
 
+@SuppressWarnings("unused")
 public class FuncionarioControlador {
 
-	 
+	private static FuncionarioRepositorio exec = new FuncionarioRepositorio(); 
+	
 	/**Este metodo salva o funcionari no banco de dados,
 	 * e faz o tratamento dos campos e suas validações  
 	 * de suas informações caso algos esteja errado não 
@@ -44,7 +52,7 @@ public class FuncionarioControlador {
 	    		
 			
 			  if (a>0){
-	    		 FuncionarioRepositorio.salvaFuncionario(f);
+	    		 exec.salvaFuncionarioRepositorio(f);
 			  }
 			  else{
 				  JOptionPane.showMessageDialog(null, "ERRO!  Insira numeros positivos ok!");
@@ -63,10 +71,37 @@ public class FuncionarioControlador {
 	    	}
 	    	
 	    
-	    
-		
-		
 	
 	} // FIM do metodo salvaFuncionarioControlador
 	
+	
+	/**
+	 * Metodo serve para excluir um funcionario 
+	 * no banco de dados 
+	 * @param f
+	 */
+	public void ExcluirFuncionarioControlador(Funcionario f){
+		
+		
+		int codigo =0; 
+		
+		try {
+			
+			codigo = Integer.parseInt(f.getCodigo());
+			
+		}catch (Exception e){
+			
+		}
+		
+       if (codigo >0){
+			
+			exec.ExcluiFuncionarioRepositorio(f);
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Insira pelo menos o nome do\n produto para ser Excluido do bando!");
+		}
+		
+		
+	}
+
 }
