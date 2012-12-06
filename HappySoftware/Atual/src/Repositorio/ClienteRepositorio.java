@@ -102,7 +102,6 @@ public class ClienteRepositorio {
 		
 		
 		int codigo = 0;
-	
 		int    ret = 0; 
 	
 		
@@ -129,7 +128,7 @@ public class ClienteRepositorio {
 			JOptionPane.showMessageDialog(null, "Não foi possivel excluir os dados!");
 		}
 		
-	 }
+	 }//Fim do metodo excluir 
 	
 	
 	

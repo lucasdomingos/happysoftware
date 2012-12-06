@@ -16,6 +16,7 @@ public static VendasRepositorio exe = new VendasRepositorio();
 		
 	
 
+	
 	@SuppressWarnings("static-access")
 	public void salvaVendasControlador(Vendas v) throws SQLException{
 		
@@ -30,7 +31,7 @@ public static VendasRepositorio exe = new VendasRepositorio();
 				
 				int quanti = Integer.parseInt(quantidade);
 				
-				exe.salvaReposittorio(v);
+				exe.salvaVendaRepositorio(v);
 				
 			}catch(Exception e){
 				e.printStackTrace();
@@ -50,14 +51,30 @@ public static VendasRepositorio exe = new VendasRepositorio();
 		
 		
 		
-	}
+	}//FIM do metodo salvaVendasControlador
 
-
-	public void salvaVendasControlador() {
-	
+    /**
+     * Metodo do controlador faz o tratamento dos campos 
+     * e logo em seguida chama o metodo excluir do 
+     * repositorio 
+     * @param v parametro de atributo da classe modelo Vendas 
+     */
+	public void ExcluirVendasControlador(Vendas v){
+		
+		
+		if ((!v.getProduto().equalsIgnoreCase(""))){
+			
+			exe.ExcluirVendaRepositorio(v);
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Insira pelo menos o nome do\n produto para ser Excluido do bando!");
+		}
+		
 		
 	}
 
+	
+	
 
 	
 	

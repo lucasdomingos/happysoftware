@@ -5,17 +5,20 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import com.mysql.jdbc.PreparedStatement;
+
 import Modelo.Produto;
 import Util.GerenteConxao;
 
 public class ProdutoReopositorio {
 
 	
-	public static void SalvarProduto(Produto p) throws SQLException{
+	public  void SalvarProdutoRepositorio(Produto p) throws SQLException{
 		
 		Connection salva = GerenteConxao.getConexao();
 		java.sql.PreparedStatement pst = null;
 		
+		@SuppressWarnings("unused")
 		int ret = 0;
 		int cod=0;
 		int compra=0;  
@@ -60,15 +63,22 @@ public class ProdutoReopositorio {
 		}
 	
 		
-	}
+	}//FIM 
 	
 	
-	public static void AlterarProduto(Produto p){
+	
+	/**
+	 * Este metodo altera os os valores do produto 
+	 * e salva no banco de dados 
+	 * @param p
+	 */
+	public static void AlterarProdutoRepositorio(Produto p){
 		
 		
 		Connection salva = GerenteConxao.getConexao();
 		java.sql.PreparedStatement pst = null;
 		
+		@SuppressWarnings("unused")
 		int ret = 0;
 		int cod=0;
 		int compra=0;  
@@ -104,7 +114,7 @@ public class ProdutoReopositorio {
 			pst.setInt(5, venda);
 			pst.setInt(6, estoque);
 			ret = pst.executeUpdate();
-			JOptionPane.showMessageDialog(null, "Produto cadastrado!");	
+			JOptionPane.showMessageDialog(null, "Produto Alterado!");	
 			
 		}catch(SQLException sqle){
 			
@@ -116,7 +126,49 @@ public class ProdutoReopositorio {
 		
 		
 		
-	}
+	}// Fim do metodo alterar
+
+  
+	
+	@SuppressWarnings({ "static-access", "unused" })
+	public void ExcluirProdutoRepositorio(Produto p){
+		
+		
+		Connection excluir = new GerenteConxao().getConexao();
+		PreparedStatement pst = null;
+		
+		
+		int codigo = 0;
+		int    ret = 0; 
+	
+		
+		try{
+			
+		codigo = Integer.parseInt(p.getCod());	
+		System.out.println(codigo);	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		
+		try{
+			String sql ="delete from produto where codigo  = ?";
+			pst = (PreparedStatement) excluir.prepareStatement(sql);
+			
+			pst.setInt(1, codigo);
+			ret = pst.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Dados excluidos com sucesso!");
+		}catch(SQLException sqle){
+			
+			sqle.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Não foi possivel excluir os dados!");
+		}
+		
+		
+	}//FIM do metodo excluir 
+
 	
 	
 	

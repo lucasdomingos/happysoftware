@@ -7,7 +7,9 @@ import Repositorio.ClienteRepositorio;
 
 public class ClienteControlador {
 	
-
+   /**
+    * @param Declaração de atributo ClienteControlador
+    */
   private static ClienteRepositorio ClienteControlador = new ClienteRepositorio();
 	
 	
@@ -59,9 +61,25 @@ public class ClienteControlador {
 	
 	public void ExcluirClienteControlador(Cliente c){
 		
-		ClienteControlador.ExcluirClienteRepositorio(c);
+		int codigo=0;
 		
-	}
+		try{
+			
+			codigo = Integer.parseInt(c.getCodigo());
+			
+		}catch (Exception e){
+			JOptionPane.showMessageDialog(null, "Insira o número do codigo correto!");
+		}
+		
+		if(codigo > 0){
+			
+		ClienteControlador.ExcluirClienteRepositorio(c);
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Insira o numero do codigo\n " +
+					                            "para ser excluido do bando");
+		}
+	}//FIM do metodo ExcluirClienteControlador
 	
 	
 }

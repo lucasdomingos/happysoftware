@@ -20,6 +20,12 @@ public class DespesaControlador {
 		
 	}
 	
+	public void ExcluirDespesasControlador(Despesa d){
+		
+		rc.ExcluirDespesaRepositorio(d);
+	}
+
+
 	
 	
 	

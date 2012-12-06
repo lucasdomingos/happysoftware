@@ -11,6 +11,7 @@ import com.mysql.jdbc.PreparedStatement;
 import Modelo.Despesa;
 import Util.GerenteConxao;
 
+@SuppressWarnings({"static-access","unused"})
 public class DespesaRepositorio {
 
 	
@@ -53,6 +54,47 @@ public class DespesaRepositorio {
 	}
 	
 	}//FIM do metedo salvar 
+	
+	
+	public void ExcluirDespesaRepositorio(Despesa d){
+		
+		Connection excluir = new GerenteConxao().getConexao();
+		PreparedStatement pst = null;
+		
+		
+		int codigo = 0;
+		int    ret = 0; 
+	
+		
+		try{
+			
+		codigo = Integer.parseInt(d.getCodigo());	
+		System.out.println(codigo);	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		
+		try{
+			String sql ="delete from despesa where codigo  = ?";
+			pst = (PreparedStatement) excluir.prepareStatement(sql);
+			
+			pst.setInt(1, codigo);
+			ret = pst.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Dados excluidos com sucesso!");
+		}catch(SQLException sqle){
+			
+			sqle.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Não foi possivel excluir os dados!");
+		}
+		
+		
+		
+		
+		
+	}//FIM do metodo 
 	
 	
 }

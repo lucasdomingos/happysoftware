@@ -29,6 +29,7 @@ import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
 
+@SuppressWarnings({ "unused", "serial" })
 public class TelaProdutos extends JFrame {
 
 	private JPanel contentPane;
@@ -64,6 +65,7 @@ public class TelaProdutos extends JFrame {
 		}
 	
 	public TelaProdutos() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 480, 473);
 		contentPane = new JPanel();
@@ -182,6 +184,22 @@ public class TelaProdutos extends JFrame {
 		panel_2.add(produtoSalvar);
 		contentPane.add(panel_2);
 		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Fachada excluir = new Fachada();
+				Produto delete = new Produto();
+				
+				delete.setCod(produtoCod.getText());
+				excluir.excluirProduto(delete);
+			    limpar();
+				
+			}
+		});
+		btnDelete.setBounds(10, 400, 98, 23);
+		panel_2.add(btnDelete);
+		
 		
 		
 		
@@ -198,6 +216,4 @@ public class TelaProdutos extends JFrame {
 		produtoVenda.setText("");
 		produtoEstoque.setText("");
 	}
-	
-	
 }

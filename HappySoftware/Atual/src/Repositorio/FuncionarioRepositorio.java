@@ -11,11 +11,13 @@ import Controlador.VendasControlador;
 import Modelo.Funcionario;
 import Util.GerenteConxao;
 
+@SuppressWarnings("unused")
 public class FuncionarioRepositorio {
 
 	
 	
-	public static void salvaFuncionario(Funcionario f){
+	
+	public  void salvaFuncionarioRepositorio(Funcionario f){
 		
 		Connection salva = GerenteConxao.getConexao();
 		PreparedStatement pst = null;
@@ -74,10 +76,46 @@ public class FuncionarioRepositorio {
 		}  
 		
 		
-	}
+	}//fim do metodo 
 	
 	
+	@SuppressWarnings("static-access")
+	public  void ExcluiFuncionarioRepositorio(Funcionario f){
+		
+		
+		
+		Connection excluir = new GerenteConxao().getConexao();
+		PreparedStatement pst = null;
+		
+		
+		int codigo = 0;
+		int    ret = 0; 
 	
+		
+		try{
+		codigo = Integer.parseInt(f.getCodigo());	
+		System.out.println(codigo);	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		
+		try{
+			String sql ="delete from funcionario where codigo  = ?";
+			pst = (PreparedStatement) excluir.prepareStatement(sql);
+			
+			pst.setInt(1, codigo);
+			ret = pst.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Dados excluidos com sucesso!");
+		}catch(SQLException sqle){
+			
+			sqle.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Não foi possivel excluir os dados!");
+		}
+		
+	}//FIM do metodo excluir 
 	
 	
 	
