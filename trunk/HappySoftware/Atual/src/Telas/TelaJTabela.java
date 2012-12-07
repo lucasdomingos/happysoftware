@@ -10,11 +10,15 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 
+import Fachada.Fachada;
+import Modelo.Cliente;
+
 public class TelaJTabela extends JFrame {
 
+	private DefaultTableModel porra;
 	private JPanel contentPane;
 	private JTable table;
-
+	String a = "ftzetdtg";
 	/**
 	 * Launch the application.
 	 */
@@ -42,6 +46,7 @@ public class TelaJTabela extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		porra = new DefaultTableModel( new Object[][]{},new Object[]{"Nome", "Codigo", "cpf", "rua", "bairro", "cidade", "data", "numero", "fone"});
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 29, 554, 222);
@@ -49,26 +54,19 @@ public class TelaJTabela extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"Nome", "Codigo", "cpf", "rua", "bairro", "cidade", "data", "numero", "fone"
-			}
-		));
+		
+		
+		table.setModel(porra);
 	}
+
+ public void caralho(){
+	 
+	 Fachada pega = new Fachada();
+	 Cliente c = new Cliente();
+	 
+	 for(c){
+		 porra.addRow(c.getNome(), c.getCodigo());
+	 }
+	 
+ }
 }

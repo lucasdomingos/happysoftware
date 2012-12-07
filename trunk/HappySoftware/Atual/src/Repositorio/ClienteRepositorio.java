@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
 
 import Modelo.Cliente;
 import Util.GerenteConxao;
@@ -130,7 +131,36 @@ public class ClienteRepositorio {
 		
 	 }//Fim do metodo excluir 
 	
-	
+	public void BuscarClienteRpositorio(Cliente c){
+		
+		String pega = c.getCodigo();
+		
+		String sql ="select nome,codigo,cpf,rua,bairro,cidade,n,telefone from cliente where codigo = "+pega;
+
+		
+		try{
+			 Statement st = (Statement) GerenteConxao.getConexao().createStatement();
+	            ResultSet pst = st.executeQuery(sql);
+	            while (pst.next()) {  
+	               c.setNome(pst.getString("nome"));
+	               c.setCodigo(pst.getString("codigo"));
+	               c.setCpf(pst.getString("cpf"));
+	               c.setRua(pst.getString("rua"));
+	               c.setBairro(pst.getString("bairro"));
+	               c.setCidade(pst.getString("cidade"));
+	               c.setNumero(pst.getString("n"));
+	               c.setTelefone(pst.getString("telefone"));
+	            }
+	            
+	        } catch (SQLException sqle) {
+	            sqle.printStackTrace();
+	        }
+			
+			
+			
+		
+		
+	}// FIM do metodo buscar 
 	
 	
 }

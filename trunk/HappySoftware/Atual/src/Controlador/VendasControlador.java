@@ -73,7 +73,11 @@ public static VendasRepositorio exe = new VendasRepositorio();
 		
 	}
 
-	
+	public void BuscarVendaControlador(Vendas v){
+		
+		exe.BuscarVendasRepositorio(v);
+		
+	}
 	
 
 	

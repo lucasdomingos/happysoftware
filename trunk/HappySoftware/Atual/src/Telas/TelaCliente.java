@@ -22,6 +22,7 @@ import javax.swing.JFormattedTextField;
 import Fachada.Fachada;
 import Modelo.Cliente;
 import Repositorio.ClienteRepositorio;
+import java.awt.Color;
 
 
 @SuppressWarnings({ "serial", "unused" })
@@ -31,7 +32,7 @@ public class TelaCliente extends JFrame {
 	private JTextField clienteSbrenome;
 	private JTextField clienteNome;
 	private JTextField clienteCpf;
-	private JTextField codCliente;
+	private JTextField clienteCodigo;
 	private JTextField clienteEndereco;
 	private JTextField clienteCidade;
 	private JTextField clienteBairro;
@@ -71,7 +72,9 @@ public class TelaCliente extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblCadastroDeClientes = new JLabel("Cadastro de CLientes");
+		JLabel lblCadastroDeClientes = new JLabel(" CLientes");
+		lblCadastroDeClientes.setForeground(new Color(0, 51, 102));
+		lblCadastroDeClientes.setBackground(new Color(0, 153, 204));
 		lblCadastroDeClientes.setBounds(10, 11, 170, 26);
 		lblCadastroDeClientes.setFont(new Font("Tahoma", Font.BOLD, 14));
 		contentPane.add(lblCadastroDeClientes);
@@ -105,10 +108,10 @@ public class TelaCliente extends JFrame {
 		
 		
 		
-		codCliente = new JTextField();
-		codCliente.setBounds(10, 134, 303, 20);
-		contentPane.add(codCliente);
-		codCliente.setColumns(10);
+		clienteCodigo = new JTextField();
+		clienteCodigo.setBounds(10, 134, 303, 20);
+		contentPane.add(clienteCodigo);
+		clienteCodigo.setColumns(10);
 		
 		JLabel lblEndereo = new JLabel("Endere\u00E7o");
 		lblEndereo.setBounds(10, 165, 81, 14);
@@ -167,7 +170,7 @@ public class TelaCliente extends JFrame {
 				
 				novo.setNome(clienteNome.getText());
 				novo.setSobrenome(clienteSbrenome.getText());
-				novo.setCodigo(codCliente.getText());
+				novo.setCodigo(clienteCodigo.getText());
 				novo.setCpf(clienteCpf.getText());
 				novo.setRua(clienteEndereco.getText());
 				novo.setCidade(clienteCidade.getText());
@@ -180,7 +183,7 @@ public class TelaCliente extends JFrame {
 				limpa();
 			}
 		});
-		clienteSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/img/salve.png")));
+		clienteSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/img/cadastro.png")));
 		clienteSalvar.setBounds(389, 357, 119, 23);
 		contentPane.add(clienteSalvar);
 		
@@ -212,14 +215,15 @@ public class TelaCliente extends JFrame {
 		contentPane.add(clienteTelefone);
 		clienteTelefone.setColumns(10);
 		
-		JButton btnDeletar = new JButton("Deletar");
+		JButton btnDeletar = new JButton("Excluir");
+		btnDeletar.setIcon(new ImageIcon(TelaCliente.class.getResource("/img/salve.png")));
 		btnDeletar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				Fachada excluir = new Fachada();
 				Cliente delete = new Cliente();
 				
-				delete.setCodigo(codCliente.getText());
+				delete.setCodigo(clienteCodigo.getText());
 				excluir.ExcluirCliente(delete);
 				
 				limpa();
@@ -227,6 +231,38 @@ public class TelaCliente extends JFrame {
 		});
 		btnDeletar.setBounds(10, 357, 109, 23);
 		contentPane.add(btnDeletar);
+		
+		JButton btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Fachada buscar = new Fachada();
+				Cliente tes = new Cliente();
+				
+				tes.setCodigo(clienteCodigo.getText());
+				buscar.BuscarCliente(tes);
+				
+				
+				clienteCodigo.setText("");
+				clienteNome.setText(tes.getNome());
+				clienteCodigo.setText(tes.getCodigo());
+				clienteCpf.setText(tes.getCpf());
+				clienteEndereco.setText(tes.getRua());
+				clienteBairro.setText(tes.getBairro());
+				clienteCidade.setText(tes.getCidade());
+				clienteN.setText(tes.getNumero());
+				clienteTelefone.setText(tes.getTelefone());
+				
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(TelaCliente.class.getResource("/img/pesquisa.png")));
+		btnNewButton.setBounds(134, 357, 109, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Alterar");
+		btnNewButton_1.setIcon(new ImageIcon(TelaCliente.class.getResource("/img/editar.png")));
+		btnNewButton_1.setBounds(262, 357, 109, 23);
+		contentPane.add(btnNewButton_1);
 	}
 	
 	
@@ -240,7 +276,7 @@ public class TelaCliente extends JFrame {
 	
 		clienteNome.setText("");
 		clienteSbrenome.setText("");
-		codCliente.setText("");
+		clienteCodigo.setText("");
 		clienteCpf.setText("");
 		clienteEndereco.setText("");
 	    clienteCidade.setText("");
