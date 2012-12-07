@@ -20,14 +20,17 @@ import javax.swing.JSplitPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 
+import Controlador.FuncionarioControlador;
 import Fachada.Fachada;
 import Modelo.Funcionario;
+import Repositorio.FuncionarioRepositorio;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
 
 import javax.swing.JFormattedTextField;
+import java.awt.Color;
 
 
 @SuppressWarnings({ "serial", "unused" })
@@ -79,11 +82,12 @@ public class TelaFuncionario extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 641, 434);
+		panel_2.setBounds(0, 0, 641, 444);
 		
-		JLabel label = new JLabel("Cadastro de Funcion\u00E1rio");
-		label.setBounds(13, 5, 168, 17);
-		label.setFont(new Font("Tahoma", Font.BOLD, 14));
+		JLabel lblFuncionrio = new JLabel("Funcion\u00E1rios");
+		lblFuncionrio.setForeground(new Color(0, 51, 102));
+		lblFuncionrio.setBounds(13, 5, 168, 17);
+		lblFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JLabel label_1 = new JLabel("Nome");
 		label_1.setBounds(13, 30, 45, 14);
@@ -143,8 +147,8 @@ public class TelaFuncionario extends JFrame {
 		
 	
 		JButton vendedoSalvar = new JButton("Salvar");
-		vendedoSalvar.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/salve.png")));
-		vendedoSalvar.setBounds(390, 399, 110, 23);
+		vendedoSalvar.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/cadastro.png")));
+		vendedoSalvar.setBounds(386, 410, 115, 23);
 		vendedoSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -168,7 +172,7 @@ public class TelaFuncionario extends JFrame {
 		
 		JButton vendedorCancelar = new JButton("Cancelar");
 		vendedorCancelar.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/cancelar.png")));
-		vendedorCancelar.setBounds(519, 399, 110, 23);
+		vendedorCancelar.setBounds(515, 410, 110, 23);
 		vendedorCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -182,7 +186,7 @@ public class TelaFuncionario extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
-		panel_2.add(label);
+		panel_2.add(lblFuncionrio);
 		panel_2.add(label_1);
 		panel_2.add(label_3);
 		panel_2.add(vendedorNome);
@@ -240,6 +244,7 @@ public class TelaFuncionario extends JFrame {
 		panel_2.add(vendedorfone);
 		
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/salve.png")));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -252,8 +257,40 @@ public class TelaFuncionario extends JFrame {
 				
 			}
 		});
-		btnDelete.setBounds(24, 397, 101, 23);
+		btnDelete.setBounds(9, 410, 114, 23);
 		panel_2.add(btnDelete);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Fachada buscar = new Fachada();
+				Funcionario pega = new Funcionario();
+				
+				pega.setCodigo(vendedorCod.getText());
+			    buscar.BucarFuncionario(pega);
+			    limpa();
+				
+				vendedorNome.setText(pega.getNome());
+				vendedorCod.setText(pega.getCodigo());
+				vendedorcpf2.setText(pega.getCpf());
+				vendedorEndereço.setText(pega.getRua());
+				vendedorBairro.setText(pega.getBairro());
+				vendedorCidade.setText(pega.getCidade());
+				vendedorData.setText(pega.getDataNascimento());
+				vendedorN.setText(pega.getNumero());
+				vendedorfone.setText(pega.getFone());
+				
+			}
+		});
+		btnBuscar.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/pesquisa.png")));
+		btnBuscar.setBounds(133, 410, 111, 23);
+		panel_2.add(btnBuscar);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/editar.png")));
+		btnAlterar.setBounds(254, 410, 117, 23);
+		panel_2.add(btnAlterar);
 		
 	}
 

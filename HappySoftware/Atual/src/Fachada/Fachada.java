@@ -39,7 +39,9 @@ public class Fachada {
 	public void excluirProduto(Produto p){
 		controladorProduto.ExcluirProdutoControlador(p);
 	}
-	
+	public void BuscarProduto(Produto p){
+		controladorProduto.BuscarProdutoControlador(p);
+	}
 	
 	
 	
@@ -49,7 +51,9 @@ public class Fachada {
 	public void Excluirfuncionario(Funcionario f){
 		controladorfuncionario.ExcluirFuncionarioControlador(f);
 	}
-	
+	public void BucarFuncionario(Funcionario f){
+		controladorfuncionario.BuscarFuncionarioControlador(f);
+	}
 	
 	
 	
@@ -60,7 +64,9 @@ public class Fachada {
 	public void ExcluirCliente(Cliente c){
 		controladorCliente.ExcluirClienteControlador(c);
 	}
-	
+	public void BuscarCliente(Cliente c){
+		controladorCliente.BuscarClienteControlador(c);
+	}
 	
 	
 	
@@ -72,7 +78,8 @@ public class Fachada {
 		controladordespesa.ExcluirDespesasControlador(d);
 	}
  
-     /**Estes metodos são os controladores 
+    
+	/**Estes metodos são os controladores 
       * da Classe cleinte que servem para 
       * salvar, ecluir, listar e alterar 
       * os valores no banco de dados 
@@ -87,7 +94,9 @@ public class Fachada {
 	   controladorVendas.ExcluirVendasControlador(v);
     }
 
-
+   public void BuscarVendas(Vendas v){
+	   controladorVendas.BuscarVendaControlador(v);
+   }
 
 
 

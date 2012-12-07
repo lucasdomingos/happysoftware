@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 
 public class TelaProcurar extends JFrame {
@@ -54,38 +55,47 @@ public class TelaProcurar extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(26, 61, 46, 14);
+		JLabel lblNome = new JLabel("Nome Completo:");
+		lblNome.setBounds(31, 11, 150, 14);
 		contentPane.add(lblNome);
 		
 		procurarNome = new JTextField();
-		procurarNome.setBounds(21, 86, 546, 20);
+		procurarNome.setBounds(26, 36, 546, 20);
 		contentPane.add(procurarNome);
 		procurarNome.setColumns(10);
 		
-		JLabel lblCod = new JLabel("Cod");
-		lblCod.setBounds(26, 135, 46, 14);
+		JLabel lblCod = new JLabel("Codigo");
+		lblCod.setBounds(31, 85, 46, 14);
 		contentPane.add(lblCod);
 		
 		procuraCod = new JTextField();
-		procuraCod.setBounds(26, 173, 200, 20);
+		procuraCod.setBounds(31, 123, 200, 20);
 		contentPane.add(procuraCod);
 		procuraCod.setColumns(10);
 		
 		JLabel lblCpf = new JLabel("CPF");
-		lblCpf.setBounds(256, 147, 46, 14);
+		lblCpf.setBounds(261, 97, 46, 14);
 		contentPane.add(lblCpf);
 		
 		procuraCpf = new JTextField();
-		procuraCpf.setBounds(254, 172, 173, 20);
+		procuraCpf.setBounds(259, 122, 173, 20);
 		contentPane.add(procuraCpf);
 		procuraCpf.setColumns(10);
 		
-		botaoOk = new JButton("Ok");
-		botaoOk.setBounds(357, 296, 100, 23);
+		botaoOk = new JButton("    Cliente");
+		botaoOk.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/pesquisa.png")));
+		botaoOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+			}
+		});
+		botaoOk.setBounds(28, 194, 129, 23);
 		contentPane.add(botaoOk);
 		
 		botaoCancelar = new JButton("Cancelar");
+		botaoCancelar.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/cancelar.png")));
 		botaoCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -93,8 +103,22 @@ public class TelaProcurar extends JFrame {
 				
 			}
 		});
-		botaoCancelar.setBounds(467, 296, 100, 23);
+		botaoCancelar.setBounds(476, 296, 114, 23);
 		contentPane.add(botaoCancelar);
+		
+		JButton btnVendedor = new JButton("Vendedor");
+		btnVendedor.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/pesquisa.png")));
+		btnVendedor.setBounds(28, 228, 129, 23);
+		contentPane.add(btnVendedor);
+		
+		JButton btnVenda = new JButton("     Venda");
+		btnVenda.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/pesquisa.png")));
+		btnVenda.setBounds(28, 262, 129, 23);
+		contentPane.add(btnVenda);
+		
+		JButton btnProduto = new JButton("  Produto");
+		btnProduto.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/pesquisa.png")));
+		btnProduto.setBounds(28, 296, 129, 23);
+		contentPane.add(btnProduto);
 	}
-
 }

@@ -39,9 +39,9 @@ public class Happy {
 				
 		for (int i = 1; i <= 1000000; i++) {
 			char caractere = letras.charAt(new Random().nextInt(25)); 
-			System.out.print(caractere);
+			//System.out.print(caractere);
 			
-			if(i%10==0){
+			if(i%1==0){
 				System.out.print("\n");
 			}
 			if(i%100000==0){

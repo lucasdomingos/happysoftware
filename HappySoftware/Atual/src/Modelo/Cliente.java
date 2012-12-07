@@ -22,7 +22,6 @@ public class Cliente {
 	 * e metodos que rotornam seus valores 
 	 * @return
 	 */
-	
 	public String getNome() {
 		return nome;
 	}

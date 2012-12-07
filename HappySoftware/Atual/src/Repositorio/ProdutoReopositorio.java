@@ -1,11 +1,13 @@
 package Repositorio;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
 
 import Modelo.Produto;
 import Util.GerenteConxao;
@@ -170,7 +172,31 @@ public class ProdutoReopositorio {
 	}//FIM do metodo excluir 
 
 	
-	
+	public void BuscarProdutoRpositorio(Produto p){
+		
+String pega = p.getCod();
+		
+		String sql ="select codigo, nome,marca,compra,venda,estoque from produto where codigo = "+pega;
+
+		
+		try{
+			 Statement st = (Statement) GerenteConxao.getConexao().createStatement();
+	            ResultSet pst = st.executeQuery(sql);
+	            while (pst.next()) {  
+	               p.setNome(pst.getString("nome"));
+	               p.setCod(pst.getString("codigo"));
+	               p.setMarca(pst.getString("marca"));
+	               p.setCompra(pst.getString("compra"));
+	               p.setVenda(pst.getString("venda"));
+	               p.setEstoque(pst.getString("estoque"));
+	            }
+	            
+	        } catch (SQLException sqle) {
+	            sqle.printStackTrace();
+	        }
+		
+		
+	}
 	
 	
 	

@@ -1,13 +1,16 @@
 package Repositorio;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
 
 import Controlador.VendasControlador;
+import Modelo.Cliente;
 import Modelo.Funcionario;
 import Util.GerenteConxao;
 
@@ -118,5 +121,32 @@ public class FuncionarioRepositorio {
 	}//FIM do metodo excluir 
 	
 	
+public void BuscarClienteRpositorio(Funcionario f){
+		
+		String pega = f.getCodigo();
+		
+		String sql ="select nome,codigo,cpf,rua,bairro,cidade, data, n,fone from funcionario where codigo = "+pega;
+
+		
+		try{
+			 Statement st = (Statement) GerenteConxao.getConexao().createStatement();
+	            ResultSet pst = st.executeQuery(sql);
+	            while (pst.next()) {  
+	               f.setNome(pst.getString("nome"));
+	               f.setCodigo(pst.getString("codigo"));
+	               f.setCpf(pst.getString("cpf"));
+	               f.setRua(pst.getString("rua"));
+	               f.setBairro(pst.getString("bairro"));
+	               f.setCidade(pst.getString("cidade"));
+	               f.setDataNascimento(pst.getString("data"));
+	               f.setNumero(pst.getString("n"));
+	               f.setFone(pst.getString("fone"));
+	            }
+	            
+	        } catch (SQLException sqle) {
+	            sqle.printStackTrace();
+	        }
 	
+	
+}	
 }

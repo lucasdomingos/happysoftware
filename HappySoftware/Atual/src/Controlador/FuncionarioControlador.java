@@ -102,6 +102,38 @@ public class FuncionarioControlador {
 		}
 		
 		
+	}//FIM do metodo ecluir 
+	
+	public void BuscarFuncionarioControlador(Funcionario f){
+		int a=0;
+		String valor="";
+		
+		try{
+			a=Integer.parseInt(f.getCodigo());
+			
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, "Insira o codigo para realizar a busca!");
+			e.printStackTrace();
+		}
+		
+		valor += a;
+		
+		if (a>0 && a<1000){
+			exec.BuscarClienteRpositorio(f);
+		}
+		
+		else if (valor.equalsIgnoreCase("") ){
+			JOptionPane.showMessageDialog(null, "Usuario não cadastrado!");
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Usuario não cadastrado!");
+		}
+		
+		
+		
 	}
 
+	
+	
+	
 }

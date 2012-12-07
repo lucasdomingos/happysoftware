@@ -24,6 +24,7 @@ import java.util.Vector;
 import javax.swing.JFormattedTextField;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Color;
 
 
 @SuppressWarnings({ "serial", "unused" })
@@ -130,6 +131,7 @@ public class TelaVenda extends JFrame {
 		contentPane.add(vendaCancelar);
 		
 		JButton vendaOk = new JButton("Delete");
+		vendaOk.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/salve.png")));
 		vendaOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -140,11 +142,11 @@ public class TelaVenda extends JFrame {
 				
 			}
 		});
-		vendaOk.setBounds(10, 362, 100, 23);
+		vendaOk.setBounds(10, 362, 119, 23);
 		contentPane.add(vendaOk);
 		
 		JButton vendaSalvar = new JButton("Salvar");
-		vendaSalvar.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/salve.png")));
+		vendaSalvar.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/cadastro.png")));
 		vendaSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -173,7 +175,7 @@ public class TelaVenda extends JFrame {
 				
 			}
 		});
-		vendaSalvar.setBounds(407, 362, 129, 23);
+		vendaSalvar.setBounds(413, 362, 129, 23);
 		contentPane.add(vendaSalvar);
 		
 		JLabel lblNomeDoCliente = new JLabel("Nome do cliente");
@@ -224,9 +226,38 @@ public class TelaVenda extends JFrame {
 		vendaValorFinal.setColumns(10);
 		
 		JLabel lblVendas = new JLabel("Vendas");
+		lblVendas.setForeground(new Color(0, 51, 102));
 		lblVendas.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblVendas.setBounds(10, 11, 108, 36);
 		contentPane.add(lblVendas);
+		
+		JButton btnNewButton = new JButton("Alterar");
+		btnNewButton.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/editar.png")));
+		btnNewButton.setBounds(284, 362, 119, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Buscar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Fachada buscar = new Fachada();
+				Vendas pega = new Vendas();
+				
+				pega.setProduto(vendaProduto.getText());
+				buscar.BuscarVendas(pega);
+				
+				vendaProduto.setText(pega.getProduto());
+				vendaCliente.setText(pega.getCliente());
+				vendaVendedor.setText(pega.getVendedor());
+				vendaQuantidade.setText(pega.getQuantidade());
+				vendaDesconto.setText(pega.getDesconto());
+				vendaValorunitario.setText(pega.getValorunitario());
+				vendaValorFinal.setText(pega.getValorFinal());
+				
+			}
+		});
+		btnNewButton_1.setIcon(new ImageIcon(TelaVenda.class.getResource("/img/pesquisa.png")));
+		btnNewButton_1.setBounds(145, 362, 129, 23);
+		contentPane.add(btnNewButton_1);
 		
 		
 	}

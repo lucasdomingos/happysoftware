@@ -27,6 +27,7 @@ import Repositorio.ProdutoReopositorio;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+import java.awt.Color;
 
 
 @SuppressWarnings({ "unused", "serial" })
@@ -74,10 +75,11 @@ public class TelaProdutos extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(0, 0, 465, 434);
+		panel_2.setBounds(0, 0, 474, 445);
 		panel_2.setLayout(null);
 		
-		JLabel lblCadastroDeProdutos = new JLabel("Cadastro de Produtos");
+		JLabel lblCadastroDeProdutos = new JLabel("Produtos");
+		lblCadastroDeProdutos.setForeground(new Color(0, 51, 102));
 		lblCadastroDeProdutos.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCadastroDeProdutos.setBounds(21, 11, 176, 25);
 		panel_2.add(lblCadastroDeProdutos);
@@ -150,11 +152,11 @@ public class TelaProdutos extends JFrame {
 				fechar();
 			}
 		});
-		produtoCancelar.setBounds(306, 400, 115, 23);
+		produtoCancelar.setBounds(349, 400, 115, 23);
 		panel_2.add(produtoCancelar);
 		
 		JButton produtoSalvar = new JButton("Salvar");
-		produtoSalvar.setIcon(new ImageIcon(TelaProdutos.class.getResource("/img/salve.png")));
+		produtoSalvar.setIcon(new ImageIcon(TelaProdutos.class.getResource("/img/cadastro.png")));
 		produtoSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -180,11 +182,12 @@ public class TelaProdutos extends JFrame {
 				
 			}
 		});
-		produtoSalvar.setBounds(181, 400, 115, 23);
+		produtoSalvar.setBounds(224, 400, 115, 23);
 		panel_2.add(produtoSalvar);
 		contentPane.add(panel_2);
 		
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.setIcon(new ImageIcon(TelaProdutos.class.getResource("/img/salve.png")));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -197,8 +200,35 @@ public class TelaProdutos extends JFrame {
 				
 			}
 		});
-		btnDelete.setBounds(10, 400, 98, 23);
+		btnDelete.setBounds(10, 319, 115, 23);
 		panel_2.add(btnDelete);
+		
+		JButton btnNewButton = new JButton("Buscar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Fachada buscar = new Fachada();
+				Produto pega = new Produto();
+				
+				pega.setCod(produtoCod.getText());
+				buscar.BuscarProduto(pega);
+				
+				produtoCod.setText(pega.getCod());
+				produtoNome.setText(pega.getNome());
+				produtoMarca.setText(pega.getMarca());
+				produtoCompra.setText(pega.getCompra());
+				produtoVenda.setText(pega.getVenda());
+				produtoEstoque.setText(pega.getEstoque());
+				
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(TelaProdutos.class.getResource("/img/pesquisa.png")));
+		btnNewButton.setBounds(10, 363, 119, 23);
+		panel_2.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Alterar");
+		btnNewButton_1.setIcon(new ImageIcon(TelaProdutos.class.getResource("/img/editar.png")));
+		btnNewButton_1.setBounds(10, 400, 117, 23);
+		panel_2.add(btnNewButton_1);
 		
 		
 		

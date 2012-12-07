@@ -1,12 +1,15 @@
 package Repositorio;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.Statement;
 
+import Modelo.Produto;
 import Modelo.Vendas;
 import Util.GerenteConxao;
 
@@ -74,6 +77,13 @@ public class VendasRepositorio {
 		
 	}// FIM do metodo salvar 
 	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Este metodo exclui os dados do 
 	 * modelo produto que estão no banco 
@@ -112,5 +122,44 @@ public class VendasRepositorio {
 	}//FIM do metodo ExcluirVendaRepositorio
 	
 	
+	
+	
+	
+	
+	
+	
+	/**
+	 * Este metodo exclui os dados do 
+	 * modelo produto que estão no banco 
+	 * de Dados
+	 * @param v parametro do metodo 
+	 */
+	public void BuscarVendasRepositorio(Vendas v){
+String pega = v.getProduto();
+String pega1 = "'"+pega+"'";
+	System.out.println(pega1);	
+		String sql ="select produto, vendedor, cliente, quantidade, desconto, valor,valorfinal from venda where produto = "+pega1;
+
+		
+		try{
+			 Statement st = (Statement) GerenteConxao.getConexao().createStatement();
+	            ResultSet pst = st.executeQuery(sql);
+	            while (pst.next()) {  
+	               v.setProduto(pst.getString("produto"));
+	               v.setVendedor(pst.getString("vendedor"));
+	               v.setCliente(pst.getString("cliente"));
+	               v.setQuantidade(pst.getString("quantidade"));
+	               v.setDesconto(pst.getString("desconto"));
+	               v.setValorunitario(pst.getString("valor"));
+	               v.setValorFinal(pst.getString("Valorfinal"));
+	               
+	            }
+	            
+	        } catch (SQLException sqle) {
+	            sqle.printStackTrace();
+	        }
+		
+		
+	}//FIM do metodo buscar 
 	
 }

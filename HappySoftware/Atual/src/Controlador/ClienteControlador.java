@@ -10,7 +10,7 @@ public class ClienteControlador {
    /**
     * @param Declaração de atributo ClienteControlador
     */
-  private static ClienteRepositorio ClienteControlador = new ClienteRepositorio();
+  private static ClienteRepositorio exec = new ClienteRepositorio();
 	
 	
 	
@@ -37,7 +37,7 @@ public class ClienteControlador {
 			
 			
 			if(a>0){
-			ClienteControlador.salvarClienteRepositorio(c);
+			exec.salvarClienteRepositorio(c);
 		
 			}
 			else{
@@ -73,13 +73,44 @@ public class ClienteControlador {
 		
 		if(codigo > 0){
 			
-		ClienteControlador.ExcluirClienteRepositorio(c);
+		exec.ExcluirClienteRepositorio(c);
 		}
 		else{
 			JOptionPane.showMessageDialog(null, "Insira o numero do codigo\n " +
 					                            "para ser excluido do bando");
 		}
 	}//FIM do metodo ExcluirClienteControlador
+	
+	
+	
+	public void BuscarClienteControlador(Cliente c){
+		
+		System.out.println("teste");
+		System.out.println("kkk"+c.getCodigo());
+		int a=0;
+		try{
+			a = Integer.parseInt(c.getCodigo());
+		
+		}catch(Exception e){
+			
+			JOptionPane.showMessageDialog(null, "Insira o codigo correto!");
+		}
+		
+		
+		
+		if(a > 0 && a<1000){
+			
+			exec.BuscarClienteRpositorio(c);
+			
+		}
+		
+		else if (c.getCodigo().equalsIgnoreCase("") ){
+			JOptionPane.showMessageDialog(null, "Usuario não cadastrado!");
+		}
+		else{
+			JOptionPane.showMessageDialog(null, "Insira o codigo para a busca!");
+		}
+	}// FIM do metodo buscar 
 	
 	
 }

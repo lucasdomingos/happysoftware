@@ -93,4 +93,11 @@ public void SalvarProdutoControlador(Produto p) throws SQLException{
 		
     }//FIM do metodo 
   
+	public void BuscarProdutoControlador(Produto p){
+		
+		exec.BuscarProdutoRpositorio(p);
+		
+	}//FIM do metodo buscar 
+	
+	
 }//fim da classe
