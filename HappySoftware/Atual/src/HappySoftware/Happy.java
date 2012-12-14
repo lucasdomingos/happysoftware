@@ -52,10 +52,6 @@ public class Happy {
 		
 		t.interrupt();
 		s.setVisible(false);
-	    GerenteConxao test = new GerenteConxao();
-	    test.getConexao();
-	    TesteConexao testing = new TesteConexao();
-	    testing.testing();
 		TelaPrincipal abrir = new TelaPrincipal();
 		abrir.setLocationRelativeTo(null);
 		abrir.setVisible(true);

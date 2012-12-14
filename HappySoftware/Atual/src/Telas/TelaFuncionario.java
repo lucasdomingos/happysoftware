@@ -30,7 +30,11 @@ import java.awt.event.ActionEvent;
 import java.text.ParseException;
 
 import javax.swing.JFormattedTextField;
+
+import com.itextpdf.text.DocumentException;
+
 import java.awt.Color;
+import java.io.IOException;
 
 
 @SuppressWarnings({ "serial", "unused" })
@@ -90,55 +94,55 @@ public class TelaFuncionario extends JFrame {
 		lblFuncionrio.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JLabel label_1 = new JLabel("Nome");
-		label_1.setBounds(13, 30, 45, 14);
+		label_1.setBounds(16, 73, 45, 14);
 		
 		vendedorSobrenome = new JTextField();
-		vendedorSobrenome.setBounds(347, 55, 278, 20);
+		vendedorSobrenome.setBounds(350, 98, 278, 20);
 		vendedorSobrenome.setColumns(10);
 		
 		JLabel label_2 = new JLabel("COD");
-		label_2.setBounds(13, 82, 28, 14);
+		label_2.setBounds(16, 125, 28, 14);
 		
 		vendedorCod = new JTextField();
-		vendedorCod.setBounds(13, 107, 238, 20);
+		vendedorCod.setBounds(16, 150, 238, 20);
 		vendedorCod.setColumns(10);
 		
 		JLabel label_3 = new JLabel("Sobrenome");
-		label_3.setBounds(347, 30, 75, 14);
+		label_3.setBounds(350, 73, 75, 14);
 		
 		vendedorNome = new JTextField();
-		vendedorNome.setBounds(13, 56, 318, 20);
+		vendedorNome.setBounds(16, 99, 318, 20);
 		vendedorNome.setColumns(10);
 		
 		JLabel label_4 = new JLabel("CPF");
-		label_4.setBounds(347, 82, 33, 14);
+		label_4.setBounds(350, 125, 33, 14);
 		
 		vendedorBairro = new JTextField();
-		vendedorBairro.setBounds(13, 211, 318, 20);
+		vendedorBairro.setBounds(16, 254, 318, 20);
 		vendedorBairro.setColumns(10);
 		
 		JLabel label_5 = new JLabel("Endere\u00E7o");
-		label_5.setBounds(13, 138, 80, 14);
+		label_5.setBounds(16, 181, 80, 14);
 		
 		JLabel label_6 = new JLabel("Bairro");
-		label_6.setBounds(13, 194, 45, 14);
+		label_6.setBounds(16, 237, 45, 14);
 		
 		vendedorEndereço = new JTextField();
-		vendedorEndereço.setBounds(13, 163, 612, 20);
+		vendedorEndereço.setBounds(16, 206, 612, 20);
 		vendedorEndereço.setColumns(10);
 		
 		JLabel label_7 = new JLabel("Cidade");
-		label_7.setBounds(347, 194, 57, 14);
+		label_7.setBounds(350, 237, 57, 14);
 		
 		vendedorCidade = new JTextField();
-		vendedorCidade.setBounds(347, 211, 278, 20);
+		vendedorCidade.setBounds(350, 254, 278, 20);
 		vendedorCidade.setColumns(10);
 		
 		JLabel label_8 = new JLabel("N\u00BA");
-		label_8.setBounds(347, 242, 12, 14);
+		label_8.setBounds(350, 285, 12, 14);
 		
 		vendedorN = new JTextField();
-		vendedorN.setBounds(347, 267, 86, 20);
+		vendedorN.setBounds(350, 310, 86, 20);
 		vendedorN.setColumns(10);
 		
 		
@@ -182,7 +186,7 @@ public class TelaFuncionario extends JFrame {
 		});
 		
 		JLabel label_9 = new JLabel("Data de Nascimento");
-		label_9.setBounds(13, 242, 129, 14);
+		label_9.setBounds(16, 285, 129, 14);
 		contentPane.setLayout(null);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
@@ -208,7 +212,7 @@ public class TelaFuncionario extends JFrame {
 		
 		MaskFormatter mascara = new MaskFormatter("###-###-###-##");
 		JFormattedTextField vendedorCpf1 = new JFormattedTextField(mascara);
-		vendedorCpf1.setBounds(347, 107, 278, 20);
+		vendedorCpf1.setBounds(350, 150, 278, 20);
 		panel_2.add(vendedorCpf1);
 		
 		vendedorcpf2 = new JTextField();
@@ -219,7 +223,7 @@ public class TelaFuncionario extends JFrame {
 		
 		MaskFormatter mascara1 = new MaskFormatter("##/##/####");
 		JFormattedTextField venderoData2 = new JFormattedTextField(mascara1);
-		venderoData2.setBounds(13, 267, 96, 20);
+		venderoData2.setBounds(16, 310, 96, 20);
 		panel_2.add(venderoData2);
 		
 		
@@ -229,12 +233,12 @@ public class TelaFuncionario extends JFrame {
 		panel_2.add(vendedorData);
 		
 		JLabel lblFone = new JLabel("Fone:");
-		lblFone.setBounds(13, 298, 46, 14);
+		lblFone.setBounds(16, 341, 46, 14);
 		panel_2.add(lblFone);
 		
 		MaskFormatter mascara2 = new MaskFormatter("##-####-####");
 		JFormattedTextField vendedorfone1 = new JFormattedTextField(mascara2);
-		vendedorfone1.setBounds(10, 323, 115, 20);
+		vendedorfone1.setBounds(13, 366, 115, 20);
 		panel_2.add(vendedorfone1);
 		
 		
@@ -253,7 +257,7 @@ public class TelaFuncionario extends JFrame {
 				
 				delete.setCodigo(vendedorCod.getText());
 				excluir.Excluirfuncionario(delete);
-				
+				limpa();
 				
 			}
 		});
@@ -291,6 +295,36 @@ public class TelaFuncionario extends JFrame {
 		btnAlterar.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/editar.png")));
 		btnAlterar.setBounds(254, 410, 117, 23);
 		panel_2.add(btnAlterar);
+		
+		JButton btnNewButton = new JButton("Gerar Pdf");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Fachada gerar = new Fachada();
+				Funcionario novo = new Funcionario();
+				
+				novo.setNome(vendedorNome.getText());
+				novo.setSobrenome(vendedorSobrenome.getText());
+				novo.setCodigo(vendedorCod.getText());
+				novo.setCpf(vendedorcpf2.getText());
+				novo.setRua(vendedorEndereço.getText());
+				novo.setBairro(vendedorBairro.getText());
+				novo.setCidade(vendedorCidade.getText());
+				novo.setDataNascimento(vendedorData.getText());
+				novo.setNumero(vendedorN.getText());
+				novo.setFone(vendedorfone.getText());
+				try {
+					gerar.GerarPDFFuncionario(novo);
+				} catch (DocumentException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				limpa();
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(TelaFuncionario.class.getResource("/img/pdf.png")));
+		btnNewButton.setBounds(505, 11, 123, 23);
+		panel_2.add(btnNewButton);
 		
 	}
 

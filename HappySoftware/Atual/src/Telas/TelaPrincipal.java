@@ -167,12 +167,6 @@ public class TelaPrincipal extends JFrame {
 		});
 		mnProcurar.add(procurarCliente);
 		
-		JMenu menuRelatorio = new JMenu("Relatorio");
-		menuBar.add(menuRelatorio);
-		
-		JMenuItem relatorioSimples = new JMenuItem("Relatorio Simples");
-		menuRelatorio.add(relatorioSimples);
-		
 		JMenu menuAjuda = new JMenu("Ajuda");
 		menuBar.add(menuAjuda);
 		

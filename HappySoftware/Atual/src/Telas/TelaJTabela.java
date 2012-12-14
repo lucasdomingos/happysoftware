@@ -60,12 +60,12 @@ public class TelaJTabela extends JFrame {
 	}
 
  public void caralho(){
-	 
+	 String es;
 	 Fachada pega = new Fachada();
 	 Cliente c = new Cliente();
 	 
-	 for(c){
-		 porra.addRow(c.getNome(), c.getCodigo());
+	 for(Cliente c1: pega.BuscarCliente()c.equals(obj)){
+		 porra.addRow(c1.getNome(), c1.getCodigo(), c1.ge);
 	 }
 	 
  }

@@ -230,6 +230,11 @@ public class TelaProdutos extends JFrame {
 		btnNewButton_1.setBounds(10, 400, 117, 23);
 		panel_2.add(btnNewButton_1);
 		
+		JButton btnNewButton_2 = new JButton("Gerar PDF");
+		btnNewButton_2.setIcon(new ImageIcon(TelaProdutos.class.getResource("/img/pdf.png")));
+		btnNewButton_2.setBounds(337, 14, 117, 23);
+		panel_2.add(btnNewButton_2);
+		
 		
 		
 		
