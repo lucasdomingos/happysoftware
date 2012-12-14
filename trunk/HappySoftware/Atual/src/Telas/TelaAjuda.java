@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 
 public class TelaAjuda extends JFrame {
@@ -44,11 +46,16 @@ public class TelaAjuda extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JEditorPane dtrpnNomeDoProjeto = new JEditorPane();
-		dtrpnNomeDoProjeto.setText("Nome do projeto:\r\n \r\nProjeto Happy \u2013 simplicidade e objetividade\r\n\r\nQuem somos: \r\nJess\u00E9, Thuany, Lucas\r\n\r\nObjetivo: \r\nDesenvolver um programa administrativo para empresas de pequeno porte com simplicidade.\r\n\r\nContatos:\r\nhttp://happyprojeto.blogspot.com.br/\r\n\r\nEmail Grupo: projetohappy@googlegroups.com\r\n\r\nEmail dos representantes e desenvolvedores:\r\n\r\njessemarquesads@gmail.com\r\nlucasdomingos3600@gmail.com\r\nthuanyads2010@gmail.com\r\n");
-		dtrpnNomeDoProjeto.setToolTipText("");
-		dtrpnNomeDoProjeto.setEditable(false);
-		dtrpnNomeDoProjeto.setBounds(10, 11, 575, 325);
-		contentPane.add(dtrpnNomeDoProjeto);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 342, 575, -329);
+		contentPane.add(scrollPane);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(20, 24, 565, 312);
+		contentPane.add(scrollPane_1);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane_1.setViewportView(textArea);
+		
 	}
 }

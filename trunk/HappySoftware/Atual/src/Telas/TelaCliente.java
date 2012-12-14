@@ -13,11 +13,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.nio.charset.CodingErrorAction;
 import java.text.ParseException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
+
+import com.itextpdf.text.DocumentException;
 
 import Fachada.Fachada;
 import Modelo.Cliente;
@@ -263,6 +266,35 @@ public class TelaCliente extends JFrame {
 		btnNewButton_1.setIcon(new ImageIcon(TelaCliente.class.getResource("/img/editar.png")));
 		btnNewButton_1.setBounds(262, 357, 109, 23);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Gerar DPF");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Fachada gera = new Fachada();
+				Cliente novo = new Cliente();
+                
+				novo.setNome(clienteNome.getText());
+				novo.setSobrenome(clienteSbrenome.getText());
+				novo.setCodigo(clienteCodigo.getText());
+				novo.setCpf(clienteCpf.getText());
+				novo.setRua(clienteEndereco.getText());
+				novo.setCidade(clienteCidade.getText());
+				novo.setBairro(clienteBairro.getText());
+				novo.setTelefone(clienteTelefone.getText());
+				novo.setNumero(clienteN.getText());
+				
+				try {
+					gera.GerarpdfCliente(novo);
+				} catch (IOException | DocumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		btnNewButton_2.setIcon(new ImageIcon(TelaCliente.class.getResource("/img/pdf.png")));
+		btnNewButton_2.setBounds(504, 15, 119, 23);
+		contentPane.add(btnNewButton_2);
 	}
 	
 	

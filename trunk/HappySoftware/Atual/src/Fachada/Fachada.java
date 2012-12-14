@@ -1,6 +1,9 @@
 package Fachada;
 
+import java.io.IOException;
 import java.sql.SQLException;
+
+import com.itextpdf.text.DocumentException;
 
 import Controlador.ClienteControlador;
 import Controlador.DespesaControlador;
@@ -54,7 +57,9 @@ public class Fachada {
 	public void BucarFuncionario(Funcionario f){
 		controladorfuncionario.BuscarFuncionarioControlador(f);
 	}
-	
+	public void GerarPDFFuncionario(Funcionario f) throws DocumentException, IOException{
+		controladorfuncionario.GerarpdfFuncionarioControlador(f);
+	}
 	
 	
 	public void salvaCliente(Cliente c){	
@@ -67,7 +72,9 @@ public class Fachada {
 	public void BuscarCliente(Cliente c){
 		controladorCliente.BuscarClienteControlador(c);
 	}
-	
+	public void GerarpdfCliente(Cliente c) throws IOException, DocumentException{
+		controladorCliente.GerarpdfClienteControlador(c);
+	}
 	
 	
     public void salvaDespesas(Despesa d){
@@ -97,6 +104,7 @@ public class Fachada {
    public void BuscarVendas(Vendas v){
 	   controladorVendas.BuscarVendaControlador(v);
    }
+
 
 
 

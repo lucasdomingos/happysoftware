@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Modelo.Cliente;
 import Modelo.Vendas;
 import Repositorio.VendasRepositorio;
 import Telas.TelaVenda;
@@ -18,6 +19,13 @@ public static VendasRepositorio exe = new VendasRepositorio();
 
 	
 	@SuppressWarnings("static-access")
+	/**
+	 * este metodo chama o metodo salvar 
+	 * do Repositorio e salva os dados do cliente 
+	 * no banco de dados 
+	 * @param v
+	 * @throws SQLException
+	 */
 	public void salvaVendasControlador(Vendas v) throws SQLException{
 		
 		
@@ -72,17 +80,23 @@ public static VendasRepositorio exe = new VendasRepositorio();
 		
 		
 	}
-
+    
+	/**
+	 * Este metodo faz uma busoca pelo 
+	 * codigo do cliente no Repositorio 
+	 * caso ele esteja cadastrado
+	 * @param v
+	 */
 	public void BuscarVendaControlador(Vendas v){
 		
 		exe.BuscarVendasRepositorio(v);
 		
 	}
 	
-
-	
-	
-
+   public void GerarpdfVendasControlador(Cliente c){
+	   
+	   
+   }
 
 
 }

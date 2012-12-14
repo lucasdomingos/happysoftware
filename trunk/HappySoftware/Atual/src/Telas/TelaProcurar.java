@@ -12,14 +12,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Color;
 
 
 public class TelaProcurar extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField procurarNome;
-	private JTextField procuraCod;
-	private JTextField procuraCpf;
 	private JButton botaoOk;
 	private JButton botaoCancelar;
 
@@ -49,38 +48,11 @@ public class TelaProcurar extends JFrame {
 	public TelaProcurar() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 606, 368);
+		setBounds(100, 100, 321, 368);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JLabel lblNome = new JLabel("Nome Completo:");
-		lblNome.setBounds(31, 11, 150, 14);
-		contentPane.add(lblNome);
-		
-		procurarNome = new JTextField();
-		procurarNome.setBounds(26, 36, 546, 20);
-		contentPane.add(procurarNome);
-		procurarNome.setColumns(10);
-		
-		JLabel lblCod = new JLabel("Codigo");
-		lblCod.setBounds(31, 85, 46, 14);
-		contentPane.add(lblCod);
-		
-		procuraCod = new JTextField();
-		procuraCod.setBounds(31, 123, 200, 20);
-		contentPane.add(procuraCod);
-		procuraCod.setColumns(10);
-		
-		JLabel lblCpf = new JLabel("CPF");
-		lblCpf.setBounds(261, 97, 46, 14);
-		contentPane.add(lblCpf);
-		
-		procuraCpf = new JTextField();
-		procuraCpf.setBounds(259, 122, 173, 20);
-		contentPane.add(procuraCpf);
-		procuraCpf.setColumns(10);
 		
 		botaoOk = new JButton("    Cliente");
 		botaoOk.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/pesquisa.png")));
@@ -91,7 +63,7 @@ public class TelaProcurar extends JFrame {
 				
 			}
 		});
-		botaoOk.setBounds(28, 194, 129, 23);
+		botaoOk.setBounds(28, 188, 129, 23);
 		contentPane.add(botaoOk);
 		
 		botaoCancelar = new JButton("Cancelar");
@@ -103,7 +75,7 @@ public class TelaProcurar extends JFrame {
 				
 			}
 		});
-		botaoCancelar.setBounds(476, 296, 114, 23);
+		botaoCancelar.setBounds(191, 296, 114, 23);
 		contentPane.add(botaoCancelar);
 		
 		JButton btnVendedor = new JButton("Vendedor");
@@ -120,5 +92,16 @@ public class TelaProcurar extends JFrame {
 		btnProduto.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/pesquisa.png")));
 		btnProduto.setBounds(28, 296, 129, 23);
 		contentPane.add(btnProduto);
+		
+		JLabel lblNewLabel = new JLabel("Lista todos os intes cadastrados");
+		lblNewLabel.setForeground(new Color(0, 51, 102));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(10, 95, 305, 71);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(TelaProcurar.class.getResource("/img/teste.png")));
+		lblNewLabel_1.setBounds(0, 0, 317, 79);
+		contentPane.add(lblNewLabel_1);
 	}
 }
