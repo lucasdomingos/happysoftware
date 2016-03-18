@@ -1,0 +1,1 @@
+Desenvolver um programa administrativo para empresas de pequeno porte com simplicidade.
